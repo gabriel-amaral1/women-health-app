@@ -5,14 +5,16 @@ import 'package:gconsult/screens/Home.dart';
 import 'package:gconsult/screens/Question13.dart';
 
 class Question12 extends StatefulWidget {
-  final symptomatology, name, cpf, address, healthUnitRecord, susCard;
-  Question12(this.symptomatology, this.name, this.cpf, this.address, this.healthUnitRecord, this.susCard);
+  final symptomatology, name, cpf, address, healthUnitRecord, susCard, suggestion, treatment;
+  Question12(this.symptomatology, this.name, this.cpf, this.address, this.healthUnitRecord, this.susCard, {this.suggestion, this.treatment});
 
   @override
   _Question12State createState() => _Question12State();
 }
 
 class _Question12State extends State<Question12> {
+  Map result = new Map<String, dynamic>();
+
   bool _yes = false;
   bool _no = false;
 
@@ -107,12 +109,11 @@ class _Question12State extends State<Question12> {
                 }
 
                 else if(answer == _noButtonName) {
-                  methods.nextPage(context, FinalResult(widget.symptomatology, widget.name, widget.cpf, widget.address, widget.healthUnitRecord, widget.susCard));
+                  methods.nextPage(context, FinalResult(widget.symptomatology, widget.name, widget.cpf, widget.address, widget.healthUnitRecord, widget.susCard, suggestion: methods.finalResult(widget.symptomatology)));
                 }
               }, 
               label: Text("Próx. pergunta"),
               icon: Icon(Icons.arrow_forward),
-              // Put all the answers so the professional can check if all the answers are correct and keep going with the treatment.
             ),
           ],
         ),

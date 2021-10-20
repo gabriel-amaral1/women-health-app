@@ -116,4 +116,13 @@ class Methods {
       });
     }
   }
+
+  finalResult(Map map, {var name}) {
+    Map result = new Map<String, dynamic>();
+    if(map["Cor"] == "Transparente" && map["Odor"] == "Inodor" && map["Consistência"] == "Opaco") {
+      result["Sugestões"] = "Vá ao médico.";
+      result["Tratamentos Preventivos"] = "Beba mais água.";
+      return result[name];
+    }
+  }
 }

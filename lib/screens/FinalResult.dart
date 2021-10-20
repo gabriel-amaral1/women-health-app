@@ -11,16 +11,14 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pdfWidgets;
 
 class FinalResult extends StatefulWidget {
-  final symptomatology, name, cpf, address, healthUnitRecord, susCard;
-  FinalResult(this.symptomatology, this.name, this.cpf, this.address, this.healthUnitRecord, this.susCard);
+  final symptomatology, name, cpf, address, healthUnitRecord, susCard, suggestion, treatment, result;
+  FinalResult(this.symptomatology, this.name, this.cpf, this.address, this.healthUnitRecord, this.susCard, {this.suggestion, this.treatment, this.result});
 
   @override
   _FinalResultState createState() => _FinalResultState();
 }
 
 class _FinalResultState extends State<FinalResult> {
-  static const platform = const MethodChannel("com.gconsultmobile.app/app");
-
   var day = DateTime.now().day;
   var month = DateTime.now().month;
   var year = DateTime.now().year;
@@ -42,10 +40,6 @@ class _FinalResultState extends State<FinalResult> {
                 pdfWidgets.Paragraph(
                   text: "Nome Completo: ${widget.name}".toUpperCase()
                 ),
-
-                pdfWidgets.Paragraph(
-                  text: "Data: $day/$month/$year".toUpperCase()
-                ),
               ]
             ),
 
@@ -57,7 +51,11 @@ class _FinalResultState extends State<FinalResult> {
                 ),
 
                 pdfWidgets.Paragraph(
-                  text: "Horário: ${DateTime.now().hour}:${DateTime.now().minute}:${DateTime.now().second}".toUpperCase()
+                  text: "Data: $day/$month/$year".toUpperCase()
+                ),
+
+                pdfWidgets.Paragraph(
+                  text: "Horário: ${DateTime.now().hour}:${DateTime.now().minute}".toUpperCase()
                 ),
               ]
             ),
@@ -368,9 +366,43 @@ class _FinalResultState extends State<FinalResult> {
                       ]
                     )
                   ]
+                ),    
+              ]
+            ),
+
+            pdfWidgets.Row(
+              mainAxisAlignment: pdfWidgets.MainAxisAlignment.spaceBetween,
+              children: [
+                pdfWidgets.Paragraph(
+                  text: ""
                 ),
               ]
-            )
+            ),
+
+             pdfWidgets.Row(
+              mainAxisAlignment: pdfWidgets.MainAxisAlignment.spaceBetween,
+              children: [
+                pdfWidgets.Paragraph(
+                  text: ""
+                ),
+              ]
+            ),
+
+            pdfWidgets.Row(
+              children: [
+                pdfWidgets.Paragraph(
+                  text: "Sugestões: ${methods.finalResult(widget.symptomatology, name: "Sugestões")}"
+                ),
+              ]
+            ),
+
+            pdfWidgets.Row(
+              children: [
+                pdfWidgets.Paragraph(
+                  text: "Tratamentos preventivos: ${methods.finalResult(widget.symptomatology, name: "Tratamentos Preventivos")}"
+                ),
+              ]
+            ),
           ];
         }
       )
@@ -381,7 +413,7 @@ class _FinalResultState extends State<FinalResult> {
     Directory documentDirectory = await getExternalStorageDirectory();
 
     String documentPath = documentDirectory.path;
-    File file = File("$documentPath/${widget.name}.pdf");
+    File file = File("$documentPath/${widget.name.toString().toUpperCase()}.pdf");
 
     file.writeAsBytesSync(await pdf.save());
   }
@@ -675,23 +707,23 @@ class _FinalResultState extends State<FinalResult> {
                   ),
                 ],
               ),
-              // Padding(
-              //   padding: EdgeInsets.only(top: 25, bottom: 5),
-              //   child: Text(
-              //     "Sugestões:",
-              //     textAlign: TextAlign.start,
-              //     style: TextStyle(
-              //       fontSize: 15,
-              //     ),
-              //   ),
-              // ),
-              // Text(
-              //     "Tratamentos preventivos:",
-              //     textAlign: TextAlign.start,
-              //     style: TextStyle(
-              //       fontSize: 15,
-              //     ),
-              //   ),
+              Padding(
+                padding: EdgeInsets.only(top: 25, bottom: 5),
+                child: Text(
+                  "Sugestões: ${methods.finalResult(widget.symptomatology, name: "Sugestões")}",
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+              ),
+              Text(
+                  "Tratamentos preventivos: ${methods.finalResult(widget.symptomatology, name: "Tratamentos Preventivos")}",
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
             ],
           ),
         ),
@@ -717,6 +749,8 @@ class _FinalResultState extends State<FinalResult> {
                 "Disúria": widget.symptomatology["Disúria"],
                 "Métodos Contraceptivos": widget.symptomatology["Métodos Contraceptivos"],
                 "Produtos Íntimos": widget.symptomatology["Produtos Íntimos"],
+                "Sugestões": methods.finalResult(widget.symptomatology, name: "Sugestões"),
+                "Tratamentos Preventivos": methods.finalResult(widget.symptomatology, name: "Tratamentos Preventivos")
               });
           
           writeOnPdf();
@@ -730,36 +764,11 @@ class _FinalResultState extends State<FinalResult> {
           Navigator.pop(context);
           Navigator.push(context, MaterialPageRoute(builder: (context) => PDF(fullPath, name: widget.name)));
 
-          javaRules();
+          //javaRules();
         },
         label: methods.floatingActionFont("Finalizar")
       ), 
         
     );
-  }
-
-  javaRules() async {
-    var rules = <String, dynamic> {
-      "Cor": widget.symptomatology["Cor"],
-      "Odor": widget.symptomatology["Odor"],
-      "Consistência": widget.symptomatology["Consistência"],
-      "Localização": widget.symptomatology["Localização"],
-      "Quantidade": widget.symptomatology["Quantidade"],
-      "Dor nas Relações Sexuais": widget.symptomatology["Dor Relações Sexuais"],
-      "Sangramentos Intermenstruais": widget.symptomatology["Sangramentos Intermenstruais"],
-      "Disúria": widget.symptomatology["Disúria"],
-      "Métodos Contraceptivos": widget.symptomatology["Métodos Contraceptivos"],
-      "Produtos Íntimos": widget.symptomatology["Produtos Íntimos"],
-    };
-
-    String value;
-
-    try {
-      value = await platform.invokeMethod("javaRules", rules);
-    } catch (e) {
-      print(e);
-    }
-
-    print(value);
   }
 }
