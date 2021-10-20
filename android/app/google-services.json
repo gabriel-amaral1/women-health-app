@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "722973232290",
+    "project_id": "gconsult-782c2",
+    "storage_bucket": "gconsult-782c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722973232290:android:b10a2dc86fdcd65cca5bfb",
+        "android_client_info": {
+          "package_name": "com.example.gconsult"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "722973232290-c052toaa42fkkricq4qjgfjbav9e2mqc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLOcXMGY7_0fIr0S7tr85YjiP7q-y4bx8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "722973232290-c052toaa42fkkricq4qjgfjbav9e2mqc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

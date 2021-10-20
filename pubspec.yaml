@@ -1,0 +1,107 @@
+name: gconsult
+description: A new Flutter project.
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.11.0 <3.0.0"
+  
+dependencies:
+  flutter:
+    sdk: flutter
+    
+  cupertino_icons: ^1.0.2
+  # DataBase
+  firebase_core: ^1.6.0
+  firebase_storage: ^10.0.3
+  cloud_firestore: ^2.5.3
+  firebase_auth: ^3.1.1
+  #
+  # PDF Files
+  path_provider: ^1.1.0
+  open_file: ^3.2.1
+  syncfusion_flutter_pdf: ^19.2.62-beta
+  pdf: ^3.6.0
+  flutter_full_pdf_viewer: ^1.0.6
+  esys_flutter_share: ^1.0.2
+  #
+  # Show PDFs on the homepage.
+  path: ^1.6.4
+  flutter_file_manager: ^0.2.0
+  path_provider_ex: ^1.0.1
+  permission_handler: ^8.1.6
+  shared_preferences: ^0.5.7+3
+  #
+  # CPF Validation
+  cpf_cnpj_validator: ^2.0.0
+  brasil_fields: ^1.2.0
+  #
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: Raleway
+      fonts:
+        - asset: lib/fonts/Raleway.ttf
+    - family: Lato
+      fonts:
+        - asset: lib/fonts/Lato-Regular.ttf
+        - asset: lib/fonts/Lato-Thin.ttf
+    - family: Josefin Sans
+      fonts:
+        - asset: lib/fonts/JosefinSans.ttf
+    - family: Open Sans
+      fonts:
+        - asset: lib/fonts/OpenSans.ttf
+    - family: Montserrat
+      fonts:
+        - asset: lib/fonts/Montserrat-Bold.ttf
+        - asset: lib/fonts/Montserrat-Regular.ttf
+        - asset: lib/fonts/Montserrat-Thin.ttf
+    - family: Poppins
+      fonts:
+        - asset: lib/fonts/Poppins-Bold.ttf
+        - asset: lib/fonts/Poppins-Regular.ttf
+        - asset: lib/fonts/Poppins-Thin.ttf
+    - family: Ubuntu
+      fonts:
+        - asset: lib/fonts/Ubuntu-Bold.ttf
+        - asset: lib/fonts/Ubuntu-Regular.ttf
+        - asset: lib/fonts/Ubuntu-Light.ttf
+
+  
+  
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
