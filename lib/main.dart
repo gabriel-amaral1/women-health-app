@@ -4,8 +4,8 @@ import 'package:gconsult/screens/Login.dart';
 
 /*
 Colors:
-  - 0xFFA63A50 (AppBar Color)
-  - 0xFFF0E7D8 (Background Color)
+  - 0xFF06BEE1 (AppBar Color)
+  - Colors.white (Background Color)
   - 0xFF718F94 (Main Button Color)
   - 0xFF122932 (Help Button Color)
   - 0xFF1B2F33 (Choice Button Color)
@@ -15,11 +15,15 @@ Colors:
 void main() {
   runApp(MaterialApp(
     theme: ThemeData(
-      backgroundColor: Color(0xFFF0E7D8),
-      primaryColor: Color(0xFFA63A50),
-      buttonColor: Color(0xFF718F94),
+      backgroundColor: Colors.white,
+      primaryColor: Color(0xFF06BEE1), // floating action button
+      scaffoldBackgroundColor: Color(0xFF06BEE1), // appbar
+      buttonColor: Color(0xFF1768AC), // choice color
+      hoverColor: Color(0xFF0F93C7), // choice color hover
+      disabledColor: Color(0xFFF5F5F5) // background of textfield in UserData.dart
     ),
     debugShowCheckedModeBanner: false,
+    
     home: Home(),
   ));
 }

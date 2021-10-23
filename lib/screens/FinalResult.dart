@@ -6,6 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:gconsult/classes/Methods.dart';
 import 'package:gconsult/classes/PDF.dart';
+import 'package:gconsult/screens/Home.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pdfWidgets;
@@ -26,6 +27,46 @@ class _FinalResultState extends State<FinalResult> {
   final pdf = pdfWidgets.Document();
 
   Methods methods = new Methods();
+
+  time() {
+    if(DateTime.now().hour < 10) {
+      if(DateTime.now().minute < 10) {
+        return "Horário: 0${DateTime.now().hour}:0${DateTime.now().minute}".toUpperCase();
+      }
+      return "Horário: 0${DateTime.now().hour}:${DateTime.now().minute}".toUpperCase();
+    }
+
+    if(DateTime.now().minute < 10) {
+      if(DateTime.now().hour < 10) {
+        return "Horário: 0${DateTime.now().hour}:0${DateTime.now().minute}".toUpperCase();
+      }
+      return "Horário: ${DateTime.now().hour}:0${DateTime.now().minute}".toUpperCase();
+    }
+
+    else {
+      return "Horário: ${DateTime.now().hour}:${DateTime.now().minute}".toUpperCase();
+    }
+  }
+
+  date() {
+    if(DateTime.now().day < 10) {
+      if(DateTime.now().month < 10) {
+        return "Data: 0${DateTime.now().day}/0${DateTime.now().month}/${DateTime.now().year}".toUpperCase();
+      }
+      return "Data: 0${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}".toUpperCase();
+    }
+
+    if(DateTime.now().month < 10) {
+      if(DateTime.now().day < 10) {
+        return "Data: 0${DateTime.now().day}/0${DateTime.now().month}/${DateTime.now().year}".toUpperCase();
+      }
+      return "Data: ${DateTime.now().day}/0${DateTime.now().month}/${DateTime.now().year}".toUpperCase();
+    }
+
+    else {
+      return "Data: ${DateTime.now().day}/${DateTime.now().month}/${DateTime.now().year}".toUpperCase();
+    }
+  }
 
   writeOnPdf() {
     pdf.addPage(
@@ -51,11 +92,11 @@ class _FinalResultState extends State<FinalResult> {
                 ),
 
                 pdfWidgets.Paragraph(
-                  text: "Data: $day/$month/$year".toUpperCase()
+                  text: date()
                 ),
 
                 pdfWidgets.Paragraph(
-                  text: "Horário: ${DateTime.now().hour}:${DateTime.now().minute}".toUpperCase()
+                  text: time()
                 ),
               ]
             ),
@@ -64,7 +105,7 @@ class _FinalResultState extends State<FinalResult> {
               mainAxisAlignment: pdfWidgets.MainAxisAlignment.spaceBetween,
               children: [
                 pdfWidgets.Paragraph(
-                  text: "Endereço: ${widget.address}".toUpperCase()
+                  text: "Registro na Unidade de Saúde: ${widget.healthUnitRecord}".toUpperCase()
                 ),
 
                 pdfWidgets.Paragraph(
@@ -77,7 +118,7 @@ class _FinalResultState extends State<FinalResult> {
               mainAxisAlignment: pdfWidgets.MainAxisAlignment.spaceBetween,
               children: [
                 pdfWidgets.Paragraph(
-                  text: "Registro na Unidade de Saúde: ${widget.healthUnitRecord}".toUpperCase()
+                  text: "Endereço: ${widget.address}".toUpperCase()
                 ),
               ]
             ),
@@ -153,7 +194,7 @@ class _FinalResultState extends State<FinalResult> {
                       children: [
                         pdfWidgets.Padding(
                           padding: pdfWidgets.EdgeInsets.fromLTRB(5, 2, 2, 5),
-                          child: pdfWidgets.Text(widget.symptomatology["Cor"]),
+                          child: pdfWidgets.Text(widget.symptomatology["Cor"].toString().toUpperCase()),
                         ),
                       ]
                     )
@@ -175,7 +216,7 @@ class _FinalResultState extends State<FinalResult> {
                       children: [
                         pdfWidgets.Padding(
                           padding: pdfWidgets.EdgeInsets.fromLTRB(5, 2, 2, 5),
-                          child: pdfWidgets.Text(widget.symptomatology["Odor"]),
+                          child: pdfWidgets.Text(widget.symptomatology["Odor"].toString().toUpperCase()),
                         ),
                       ]
                     )
@@ -197,7 +238,7 @@ class _FinalResultState extends State<FinalResult> {
                       children: [
                         pdfWidgets.Padding(
                           padding: pdfWidgets.EdgeInsets.fromLTRB(5, 2, 2, 5),
-                          child: pdfWidgets.Text(widget.symptomatology["Consistência"]),
+                          child: pdfWidgets.Text(widget.symptomatology["Consistência"].toString().toUpperCase()),
                         ),
                       ]
                     )
@@ -219,7 +260,7 @@ class _FinalResultState extends State<FinalResult> {
                       children: [
                         pdfWidgets.Padding(
                           padding: pdfWidgets.EdgeInsets.fromLTRB(5, 2, 2, 5),
-                          child: pdfWidgets.Text(widget.symptomatology["Localização"]),
+                          child: pdfWidgets.Text(widget.symptomatology["Localização"].toString().toUpperCase()),
                         ),
                       ]
                     )
@@ -241,7 +282,7 @@ class _FinalResultState extends State<FinalResult> {
                       children: [
                         pdfWidgets.Padding(
                           padding: pdfWidgets.EdgeInsets.fromLTRB(5, 2, 2, 5),
-                          child: pdfWidgets.Text(widget.symptomatology["Quantidade"]),
+                          child: pdfWidgets.Text(widget.symptomatology["Quantidade"].toString().toUpperCase()),
                         ),
                       ]
                     )
@@ -264,7 +305,7 @@ class _FinalResultState extends State<FinalResult> {
                       children: [
                         pdfWidgets.Padding(
                           padding: pdfWidgets.EdgeInsets.fromLTRB(5, 2, 2, 5),
-                          child: pdfWidgets.Text(widget.symptomatology["Dor Relações Sexuais"]),
+                          child: pdfWidgets.Text(widget.symptomatology["Dor Relações Sexuais"].toString().toUpperCase()),
                         ),
                       ]
                     )
@@ -287,7 +328,7 @@ class _FinalResultState extends State<FinalResult> {
                       children: [
                         pdfWidgets.Padding(
                           padding: pdfWidgets.EdgeInsets.fromLTRB(5, 2, 2, 5),
-                          child: pdfWidgets.Text(widget.symptomatology["Sangramentos Intermenstruais"]),
+                          child: pdfWidgets.Text(widget.symptomatology["Sangramentos Intermenstruais"].toString().toUpperCase()),
                         ),
                       ]
                     )
@@ -309,7 +350,7 @@ class _FinalResultState extends State<FinalResult> {
                       children: [
                         pdfWidgets.Padding(
                           padding: pdfWidgets.EdgeInsets.fromLTRB(5, 2, 2, 5),
-                          child: pdfWidgets.Text(widget.symptomatology["Disúria"]),
+                          child: pdfWidgets.Text(widget.symptomatology["Disúria"].toString().toUpperCase()),
                         ),
                       ]
                     )
@@ -335,7 +376,7 @@ class _FinalResultState extends State<FinalResult> {
                         children: [
                           pdfWidgets.Column(
                             children: [
-                              pdfWidgets.Text(widget.symptomatology["Métodos Contraceptivos"].toString().substring(1, widget.symptomatology["Métodos Contraceptivos"].toString().length-1))
+                              pdfWidgets.Text(widget.symptomatology["Métodos Contraceptivos"].toString().substring(1, widget.symptomatology["Métodos Contraceptivos"].toString().length-1).toUpperCase())
                             ]
                           ),
                           
@@ -361,7 +402,7 @@ class _FinalResultState extends State<FinalResult> {
                       children: [
                         pdfWidgets.Padding(
                           padding: pdfWidgets.EdgeInsets.fromLTRB(5, 2, 2, 5),
-                          child: pdfWidgets.Text(widget.symptomatology["Produtos Íntimos"].toString().substring(1, widget.symptomatology["Produtos Íntimos"].toString().length-1)),
+                          child: pdfWidgets.Text(widget.symptomatology["Produtos Íntimos"].toString().substring(1, widget.symptomatology["Produtos Íntimos"].toString().length-1).toUpperCase()),
                         ),
                       ]
                     )
@@ -391,7 +432,7 @@ class _FinalResultState extends State<FinalResult> {
             pdfWidgets.Row(
               children: [
                 pdfWidgets.Paragraph(
-                  text: "Sugestões: ${methods.finalResult(widget.symptomatology, name: "Sugestões")}"
+                  text: "Sugestões: ${methods.finalResult(widget.symptomatology, name: "Sugestões")}".toUpperCase()
                 ),
               ]
             ),
@@ -399,7 +440,7 @@ class _FinalResultState extends State<FinalResult> {
             pdfWidgets.Row(
               children: [
                 pdfWidgets.Paragraph(
-                  text: "Tratamentos preventivos: ${methods.finalResult(widget.symptomatology, name: "Tratamentos Preventivos")}"
+                  text: "Orientações: ${methods.finalResult(widget.symptomatology, name: "Orientações")}".toUpperCase()
                 ),
               ]
             ),
@@ -423,7 +464,16 @@ class _FinalResultState extends State<FinalResult> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
-        title: methods.appBarFont("Resultado")
+        title: methods.appBarFont("Resultado"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+            }, 
+            icon: Icon(Icons.close)
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -453,6 +503,42 @@ class _FinalResultState extends State<FinalResult> {
                 padding: EdgeInsets.only(bottom: 15),
                 child: Text(
                   "Nome Completo: ${widget.name}".toUpperCase(),
+                  style: TextStyle(
+                    fontSize: 15
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 15),
+                child: Text(
+                  "CPF: ${widget.cpf}".toUpperCase(),
+                  style: TextStyle(
+                    fontSize: 15
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 15),
+                child: Text(
+                  "Endereço: ${widget.address}".toUpperCase(),
+                  style: TextStyle(
+                    fontSize: 15
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 15),
+                child: Text(
+                  "Cartão do SUS: ${widget.susCard}".toUpperCase(),
+                  style: TextStyle(
+                    fontSize: 15
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(bottom: 15),
+                child: Text(
+                  "Registro na Unidade de Saúde: ${widget.healthUnitRecord}".toUpperCase(),
                   style: TextStyle(
                     fontSize: 15
                   ),
@@ -499,7 +585,7 @@ class _FinalResultState extends State<FinalResult> {
                       Padding(
                         padding: EdgeInsets.all(4),
                         child: Text(
-                          widget.symptomatology["Cor"],
+                          widget.symptomatology["Cor"].toString().toUpperCase(),
                           style: TextStyle(
                             fontSize: 16,
                           ),
@@ -521,7 +607,7 @@ class _FinalResultState extends State<FinalResult> {
                       Padding(
                         padding: EdgeInsets.all(4),
                         child: Text(
-                          widget.symptomatology["Odor"],
+                          widget.symptomatology["Odor"].toString().toUpperCase(),
                           style: TextStyle(
                             fontSize: 16,
                           ),
@@ -543,7 +629,7 @@ class _FinalResultState extends State<FinalResult> {
                       Padding(
                         padding: EdgeInsets.all(4),
                         child: Text(
-                          widget.symptomatology["Consistência"],
+                          widget.symptomatology["Consistência"].toString().toUpperCase(),
                           style: TextStyle(
                             fontSize: 16,
                           ),
@@ -565,7 +651,7 @@ class _FinalResultState extends State<FinalResult> {
                       Padding(
                         padding: EdgeInsets.all(4),
                         child: Text(
-                          widget.symptomatology["Localização"],
+                          widget.symptomatology["Localização"].toString().toUpperCase(),
                           style: TextStyle(
                             fontSize: 16,
                           ),
@@ -587,7 +673,7 @@ class _FinalResultState extends State<FinalResult> {
                       Padding(
                         padding: EdgeInsets.all(4),
                         child: Text(
-                          widget.symptomatology["Quantidade"],
+                          widget.symptomatology["Quantidade"].toString().toUpperCase(),
                           style: TextStyle(
                             fontSize: 16,
                           ),
@@ -609,7 +695,7 @@ class _FinalResultState extends State<FinalResult> {
                       Padding(
                         padding: EdgeInsets.all(4),
                         child: Text(
-                          widget.symptomatology["Dor Relações Sexuais"],
+                          widget.symptomatology["Dor Relações Sexuais"].toString().toUpperCase(),
                           style: TextStyle(
                             fontSize: 16,
                           ),
@@ -631,7 +717,7 @@ class _FinalResultState extends State<FinalResult> {
                       Padding(
                         padding: EdgeInsets.all(4),
                         child: Text(
-                          widget.symptomatology["Sangramentos Intermenstruais"],
+                          widget.symptomatology["Sangramentos Intermenstruais"].toString().toUpperCase(),
                           style: TextStyle(
                             fontSize: 16,
                           ),
@@ -653,7 +739,7 @@ class _FinalResultState extends State<FinalResult> {
                       Padding(
                         padding: EdgeInsets.all(4),
                         child: Text(
-                          widget.symptomatology["Disúria"],
+                          widget.symptomatology["Disúria"].toString().toUpperCase(),
                           style: TextStyle(
                             fontSize: 16,
                           ),
@@ -675,7 +761,7 @@ class _FinalResultState extends State<FinalResult> {
                       Padding(
                         padding: EdgeInsets.all(4),
                         child: Text(
-                          widget.symptomatology["Métodos Contraceptivos"].toString().substring(1, widget.symptomatology["Métodos Contraceptivos"].toString().length-1),
+                          widget.symptomatology["Métodos Contraceptivos"].toString().substring(1, widget.symptomatology["Métodos Contraceptivos"].toString().length-1).toString().toUpperCase(),
                           style: TextStyle(
                             fontSize: 16,
                           ),
@@ -697,7 +783,7 @@ class _FinalResultState extends State<FinalResult> {
                       Padding(
                         padding: EdgeInsets.all(4),
                         child: Text(
-                          widget.symptomatology["Produtos Íntimos"].toString().substring(1, widget.symptomatology["Produtos Íntimos"].toString().length-1),
+                          widget.symptomatology["Produtos Íntimos"].toString().substring(1, widget.symptomatology["Produtos Íntimos"].toString().length-1).toString().toUpperCase(),
                           style: TextStyle(
                             fontSize: 16,
                           ),
@@ -710,7 +796,7 @@ class _FinalResultState extends State<FinalResult> {
               Padding(
                 padding: EdgeInsets.only(top: 25, bottom: 5),
                 child: Text(
-                  "Sugestões: ${methods.finalResult(widget.symptomatology, name: "Sugestões")}",
+                  "Sugestões: ${methods.finalResult(widget.symptomatology, name: "Sugestões")}".toUpperCase(),
                   textAlign: TextAlign.start,
                   style: TextStyle(
                     fontSize: 15,
@@ -718,7 +804,7 @@ class _FinalResultState extends State<FinalResult> {
                 ),
               ),
               Text(
-                  "Tratamentos preventivos: ${methods.finalResult(widget.symptomatology, name: "Tratamentos Preventivos")}",
+                  "Orientações: ${methods.finalResult(widget.symptomatology, name: "Orientações")}".toUpperCase(),
                   textAlign: TextAlign.start,
                   style: TextStyle(
                     fontSize: 15,
@@ -734,7 +820,7 @@ class _FinalResultState extends State<FinalResult> {
         onPressed: () async {
           await Firebase.initializeApp();
           FirebaseFirestore db = FirebaseFirestore.instance;
-          
+                  
           db.collection("pacientes")
             .doc(widget.name + " - " + DateTime.now().day.toString() + "." + DateTime.now().month.toString() + "." + DateTime.now().year.toString())
             .set(
@@ -750,12 +836,12 @@ class _FinalResultState extends State<FinalResult> {
                 "Métodos Contraceptivos": widget.symptomatology["Métodos Contraceptivos"],
                 "Produtos Íntimos": widget.symptomatology["Produtos Íntimos"],
                 "Sugestões": methods.finalResult(widget.symptomatology, name: "Sugestões"),
-                "Tratamentos Preventivos": methods.finalResult(widget.symptomatology, name: "Tratamentos Preventivos")
+                "Orientações": methods.finalResult(widget.symptomatology, name: "Orientações")
               });
-          
+
           writeOnPdf();
           savePdf();
-
+          
           Directory documentDirectory = await getExternalStorageDirectory();
 
           String documentPath = documentDirectory.path;
@@ -763,8 +849,6 @@ class _FinalResultState extends State<FinalResult> {
 
           Navigator.pop(context);
           Navigator.push(context, MaterialPageRoute(builder: (context) => PDF(fullPath, name: widget.name)));
-
-          //javaRules();
         },
         label: methods.floatingActionFont("Finalizar")
       ), 

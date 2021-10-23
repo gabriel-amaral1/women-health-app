@@ -19,7 +19,7 @@ class Methods {
 
   Widget nextQuestionFloatingActionButton(context, String heroTag, Map map, String symptom, var className, var answer) {
     return FloatingActionButton.extended(
-      backgroundColor: Color(0xFF718F94),
+      backgroundColor: Theme.of(context).primaryColor,
       heroTag: heroTag,
       onPressed: () {
         map[symptom] = answer;
@@ -35,6 +35,7 @@ class Methods {
     return Text(
       name,
       style: TextStyle(
+        color: Colors.white,
         fontSize: 20,
         fontFamily: "Open Sans",
         fontWeight: FontWeight.w600
@@ -76,12 +77,12 @@ class Methods {
     );
   }
 
-  isSelected(var globalButton) {
+  isSelected(context, var globalButton) {
     if (globalButton) {
-      return MaterialStateProperty.all(Color(0xFF3DB899));
+      return MaterialStateProperty.all(Theme.of(context).buttonColor);
     }
 
-    return MaterialStateProperty.all(Color(0xFF050517));
+    return MaterialStateProperty.all(Theme.of(context).hoverColor);
   }
 
   setFalse({int counter = 0, bool boolean = false, bool boolean2 = false, bool boolean3 = false, bool boolean4 = false, bool boolean5 = false, bool boolean6 = false, bool boolean7 = false, bool boolean8 = false, bool boolean9 = false, bool boolean10 = false, String name = "", String name2 = "", String name3 = "", String name4 = "", String name5 = "", String name6 = "", String name7 = "", String name8 = "", String name9 = "", String name10 = "",}) {
@@ -121,7 +122,7 @@ class Methods {
     Map result = new Map<String, dynamic>();
     if(map["Cor"] == "Transparente" && map["Odor"] == "Inodor" && map["Consistência"] == "Opaco") {
       result["Sugestões"] = "Vá ao médico.";
-      result["Tratamentos Preventivos"] = "Beba mais água.";
+      result["Orientações"] = "Beba mais água.";
       return result[name];
     }
   }

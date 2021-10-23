@@ -30,12 +30,13 @@ class _UserDataState extends State<UserData> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF0E7D8),
+      backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
-        backgroundColor: Color(0xFFA63A50),
+        backgroundColor: Theme.of(context).primaryColor,
         title: Text(
           "Sintomatologia",
           style: TextStyle(
+            color: Colors.white,
             fontSize: 20,
             fontFamily: "Open Sans",
             fontWeight: FontWeight.w600
@@ -88,7 +89,7 @@ class _UserDataState extends State<UserData> {
                       fontSize: 14,
                     ),
                     filled: true,
-                    fillColor: Color(0xFFE8DBC5),
+                    fillColor: Theme.of(context).disabledColor,
                   ),
                   style: TextStyle(),
                   inputFormatters: [
@@ -98,7 +99,7 @@ class _UserDataState extends State<UserData> {
                     if(value == null || value.isEmpty) {
                       return "Digite o nome da paciente.";
                     }
-                    return null;
+                    return value;
                   },
                   controller: patientName,
                 ),
@@ -123,7 +124,7 @@ class _UserDataState extends State<UserData> {
                         fontSize: 14,
                       ),
                       filled: true,
-                      fillColor: Color(0xFFE8DBC5)
+                      fillColor: Theme.of(context).disabledColor
                     ),
                     style: TextStyle(),
                     inputFormatters: [
@@ -134,7 +135,7 @@ class _UserDataState extends State<UserData> {
                       if(value == null || value.isEmpty || cpfValidator.CPFValidator.isValid(value) == false) {
                         return "Digite um CPF válido.";
                       }
-                      return null;
+                      return value;
                     },
                     controller: cpf,
                   ),
@@ -160,7 +161,7 @@ class _UserDataState extends State<UserData> {
                         fontSize: 14,
                       ),
                       filled: true,
-                      fillColor: Color(0xFFE8DBC5)
+                      fillColor: Theme.of(context).disabledColor
                     ),
                     style: TextStyle(),
                     inputFormatters: [
@@ -170,7 +171,7 @@ class _UserDataState extends State<UserData> {
                       if(value == null || value.isEmpty) {
                         return "Digite um endereço válido.";
                       }
-                      return null;
+                      return value;
                     },
                     controller: address,
                   ),
@@ -196,7 +197,7 @@ class _UserDataState extends State<UserData> {
                         fontSize: 14,
                       ),
                       filled: true,
-                      fillColor: Color(0xFFE8DBC5)
+                      fillColor: Theme.of(context).disabledColor
                     ),
                     style: TextStyle(),
                     inputFormatters: [
@@ -206,7 +207,7 @@ class _UserDataState extends State<UserData> {
                       if(value == null || value.isEmpty) {
                         return "Digite um registro válido.";
                       }
-                      return null;
+                      return value;
                     },
                     controller: healthUnitRecord,
                   ),
@@ -232,7 +233,7 @@ class _UserDataState extends State<UserData> {
                         fontSize: 14,
                       ),
                       filled: true,
-                      fillColor: Color(0xFFE8DBC5),
+                      fillColor: Theme.of(context).disabledColor,
                     ),
                     style: TextStyle(),
                     inputFormatters: [
@@ -242,7 +243,7 @@ class _UserDataState extends State<UserData> {
                       if(value == null || value.isEmpty) {
                         return "Digite um cartão do SUS válido.";
                       }
-                      return null;
+                      return value;
                     },
                     controller: susCard,
                   ),
@@ -253,7 +254,7 @@ class _UserDataState extends State<UserData> {
         )
       ),
       floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: Color(0xFF718F94),
+        backgroundColor: Theme.of(context).primaryColor,
         onPressed: () {
           if (_formKey.currentState.validate()) {
             // If the form is valid, display a snackbar. In the real world,

@@ -26,7 +26,7 @@ class _Question2State extends State<Question2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: methods.appBarFont("Sintomatologia"),
         actions: [
@@ -64,7 +64,7 @@ class _Question2State extends State<Question2> {
                      style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_odorless)
+                        backgroundColor: methods.isSelected(context, _odorless)
                       ),
                     ),
                     ElevatedButton(
@@ -81,7 +81,7 @@ class _Question2State extends State<Question2> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_putrid)
+                        backgroundColor: methods.isSelected(context, _putrid)
                       ),
                     )
                   ],

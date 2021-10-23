@@ -32,7 +32,7 @@ class _Question11State extends State<Question11> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: methods.appBarFont("Sintomatologia"),
         actions: [
@@ -73,7 +73,7 @@ class _Question11State extends State<Question11> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_soap)
+                        backgroundColor: methods.isSelected(context, _soap)
                       ),
                     ),
                     ElevatedButton(
@@ -93,7 +93,7 @@ class _Question11State extends State<Question11> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_lubricant)
+                        backgroundColor: methods.isSelected(context, _lubricant)
                       ),
                     )
                   ],
@@ -128,7 +128,7 @@ class _Question11State extends State<Question11> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_flavoring)
+                        backgroundColor: methods.isSelected(context, _flavoring)
                       ),
                     ),
                     ElevatedButton(
@@ -148,7 +148,7 @@ class _Question11State extends State<Question11> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_none)
+                        backgroundColor: methods.isSelected(context, _none)
                       ),
                     )
                   ],
@@ -176,7 +176,7 @@ class _Question11State extends State<Question11> {
                      style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_other)
+                        backgroundColor: methods.isSelected(context, _other)
                       ),
                     ),
                   ],

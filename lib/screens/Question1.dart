@@ -36,7 +36,7 @@ class _Question1State extends State<Question1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: methods.appBarFont("Sintomatologia"),
         actions: [
@@ -77,7 +77,7 @@ class _Question1State extends State<Question1> {
                     style: ButtonStyle(
                       fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)), 
                       elevation: MaterialStateProperty.all(5), 
-                      backgroundColor: methods.isSelected(_transparent)
+                      backgroundColor: methods.isSelected(context, _transparent)
                     ),
                   ),
                   ElevatedButton(
@@ -94,7 +94,7 @@ class _Question1State extends State<Question1> {
                     style: ButtonStyle(
                       fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)), 
                       elevation: MaterialStateProperty.all(5), 
-                      backgroundColor: methods.isSelected(_whitish)
+                      backgroundColor: methods.isSelected(context, _whitish)
                     ),
                   )
                 ],
@@ -119,7 +119,7 @@ class _Question1State extends State<Question1> {
                     style: ButtonStyle(
                       fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                       elevation: MaterialStateProperty.all(5),
-                      backgroundColor: methods.isSelected(_yellowish),
+                      backgroundColor: methods.isSelected(context, _yellowish),
                     ),
                   ),
                   ElevatedButton(
@@ -136,7 +136,7 @@ class _Question1State extends State<Question1> {
                     style: ButtonStyle(
                       fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                       elevation: MaterialStateProperty.all(5),
-                      backgroundColor: methods.isSelected(_greenishYellow),
+                      backgroundColor: methods.isSelected(context, _greenishYellow),
                     ),
                   )
                 ],
@@ -161,7 +161,7 @@ class _Question1State extends State<Question1> {
                     style: ButtonStyle(
                       fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                       elevation: MaterialStateProperty.all(5),
-                      backgroundColor: methods.isSelected(_grayYellow),
+                      backgroundColor: methods.isSelected(context, _grayYellow),
                     ),
                   ),
                   ElevatedButton(
@@ -178,7 +178,7 @@ class _Question1State extends State<Question1> {
                     style: ButtonStyle(
                       fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                       elevation: MaterialStateProperty.all(5),
-                      backgroundColor: methods.isSelected(_other),
+                      backgroundColor: methods.isSelected(context, _other),
                     ),
                   ),
                 ],

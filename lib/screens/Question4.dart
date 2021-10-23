@@ -30,7 +30,7 @@ class _Question4State extends State<Question4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: methods.appBarFont("Sintomatologia"),
         actions: [
@@ -68,7 +68,7 @@ class _Question4State extends State<Question4> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_vulva)
+                        backgroundColor: methods.isSelected(context, _vulva)
                       ),
                     ),
                     ElevatedButton(
@@ -85,7 +85,7 @@ class _Question4State extends State<Question4> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_vaginalWalls)
+                        backgroundColor: methods.isSelected(context, _vaginalWalls)
                       ),
                     ),
                   ],
@@ -110,7 +110,7 @@ class _Question4State extends State<Question4> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_cervix)
+                        backgroundColor: methods.isSelected(context, _cervix)
                       ),
                     ),
                     ElevatedButton(
@@ -127,7 +127,7 @@ class _Question4State extends State<Question4> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_endocervix)
+                        backgroundColor: methods.isSelected(context, _endocervix)
                       ),
                     ),
                   ],

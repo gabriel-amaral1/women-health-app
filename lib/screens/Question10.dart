@@ -41,7 +41,7 @@ class _Question10State extends State<Question10> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: methods.appBarFont("Sintomatologia"),
         actions: [
@@ -82,7 +82,7 @@ class _Question10State extends State<Question10> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_hormonal)
+                        backgroundColor: methods.isSelected(context, _hormonal)
                       ),
                     ),
                     ElevatedButton(
@@ -106,7 +106,7 @@ class _Question10State extends State<Question10> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_barrier)
+                        backgroundColor: methods.isSelected(context, _barrier)
 
                       ),
                     ),
@@ -135,7 +135,7 @@ class _Question10State extends State<Question10> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_diu)
+                        backgroundColor: methods.isSelected(context, _diu)
                       ),
                     ),
                     ElevatedButton(
@@ -155,7 +155,7 @@ class _Question10State extends State<Question10> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_pills)
+                        backgroundColor: methods.isSelected(context, _pills)
                       ),
                     ),
                   ],
@@ -183,7 +183,7 @@ class _Question10State extends State<Question10> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_injectables)
+                        backgroundColor: methods.isSelected(context, _injectables)
                       ),
                     ),
                     ElevatedButton(
@@ -203,7 +203,7 @@ class _Question10State extends State<Question10> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_implants)
+                        backgroundColor: methods.isSelected(context, _implants)
                       ),
                     ),
                   ],
@@ -231,7 +231,7 @@ class _Question10State extends State<Question10> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_femaleCondom)
+                        backgroundColor: methods.isSelected(context, _femaleCondom)
                       ),
                     ),
                     ElevatedButton(
@@ -251,7 +251,7 @@ class _Question10State extends State<Question10> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_diafragmHood)
+                        backgroundColor: methods.isSelected(context, _diafragmHood)
                       ),
                     ),
                   ],
@@ -279,7 +279,7 @@ class _Question10State extends State<Question10> {
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(_spermicides)
+                        backgroundColor: methods.isSelected(context, _spermicides)
                       ),
                     ),
                   ],
