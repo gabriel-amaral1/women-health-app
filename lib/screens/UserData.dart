@@ -2,7 +2,6 @@ import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gconsult/classes/Methods.dart';
-import 'package:gconsult/main.dart';
 import 'package:gconsult/screens/Home.dart';
 import 'package:cpf_cnpj_validator/cpf_validator.dart' as cpfValidator;
 import 'package:gconsult/screens/Question1.dart'; 

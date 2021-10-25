@@ -18,7 +18,7 @@ void main() {
       backgroundColor: Colors.white,
       primaryColor: Color(0xFF06BEE1), // floating action button
       scaffoldBackgroundColor: Color(0xFF06BEE1), // appbar
-      buttonColor: Color(0xFF1768AC), // choice color
+      focusColor: Color(0xFF1768AC), // choice color
       hoverColor: Color(0xFF0F93C7), // choice color hover
       disabledColor: Color(0xFFF5F5F5) // background of textfield in UserData.dart
     ),

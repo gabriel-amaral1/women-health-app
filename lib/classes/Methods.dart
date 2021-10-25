@@ -79,7 +79,7 @@ class Methods {
 
   isSelected(context, var globalButton) {
     if (globalButton) {
-      return MaterialStateProperty.all(Theme.of(context).buttonColor);
+      return MaterialStateProperty.all(Theme.of(context).focusColor);
     }
 
     return MaterialStateProperty.all(Theme.of(context).hoverColor);
