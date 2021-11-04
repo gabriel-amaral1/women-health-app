@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:gconsult/classes/Methods.dart';
-import 'package:gconsult/classes/PDF.dart';
-import 'package:gconsult/screens/UserData.dart';
+import 'package:women_health_app/classes/Methods.dart';
+import 'package:women_health_app/classes/PDF.dart';
+import 'package:women_health_app/screens/UserData.dart';
 import 'package:flutter_file_manager/flutter_file_manager.dart';
 import 'package:path_provider_ex/path_provider_ex.dart';
 import 'package:flutter/widgets.dart';
@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
       var root = storageInfo[0].rootDir; //storageInfo[1] for SD card, geting the root directory
       var fm = FileManager(root: Directory(root)); //
       files = await fm.filesTree( 
-        excludedPaths: ["/storage/emulated/0/Android/data/com.gconsultmobile.app/files"],
+        excludedPaths: ["/storage/emulated/0/Android/data/com.app.womenhealth/files"],
         extensions: ["pdf"] //optional, to filter files, list only pdf files
       );
       setState(() {}); //update the UI
@@ -63,14 +63,14 @@ class _HomeState extends State<Home> {
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return PDF(files[index].path.toString());
+                return PDF(files[index].path.toString(), name: files[index].path.split('/').last.toString().substring(0, files[index].path.split('/').last.toString().length-4));
               }));
             },
           );
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: Theme.of(context).focusColor,
       onPressed: () {
         Navigator.pop(context);
         Navigator.push(context, MaterialPageRoute(builder: (context) => UserData()));

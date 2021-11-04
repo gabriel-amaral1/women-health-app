@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:gconsult/classes/Methods.dart';
-import 'package:gconsult/classes/PDF.dart';
-import 'package:gconsult/screens/Home.dart';
+import 'package:women_health_app/classes/Methods.dart';
+import 'package:women_health_app/classes/PDF.dart';
+import 'package:women_health_app/screens/Home.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pdfWidgets;
@@ -23,6 +23,9 @@ class _FinalResultState extends State<FinalResult> {
   var day = DateTime.now().day;
   var month = DateTime.now().month;
   var year = DateTime.now().year;
+  var hours = DateTime.now().hour;
+  var minutes = DateTime.now().minute;
+  var seconds = DateTime.now().second;
 
   final pdf = pdfWidgets.Document();
 
@@ -454,7 +457,7 @@ class _FinalResultState extends State<FinalResult> {
     Directory documentDirectory = await getExternalStorageDirectory();
 
     String documentPath = documentDirectory.path;
-    File file = File("$documentPath/${widget.name.toString().toUpperCase()}.pdf");
+    File file = File("$documentPath/${widget.name.toUpperCase()}.pdf");
 
     file.writeAsBytesSync(await pdf.save());
   }
@@ -822,7 +825,7 @@ class _FinalResultState extends State<FinalResult> {
           FirebaseFirestore db = FirebaseFirestore.instance;
                   
           db.collection("pacientes")
-            .doc(widget.name + " - " + DateTime.now().day.toString() + "." + DateTime.now().month.toString() + "." + DateTime.now().year.toString())
+            .doc(widget.name + " - " + DateTime.now().day.toString() + "." + DateTime.now().month.toString() + "." + DateTime.now().year.toString() + " " + time().toString().substring(8, time().toString().length))
             .set(
               {
                 "Cor": widget.symptomatology["Cor"],
@@ -836,7 +839,7 @@ class _FinalResultState extends State<FinalResult> {
                 "Métodos Contraceptivos": widget.symptomatology["Métodos Contraceptivos"],
                 "Produtos Íntimos": widget.symptomatology["Produtos Íntimos"],
                 "Sugestões": methods.finalResult(widget.symptomatology, name: "Sugestões"),
-                "Orientações": methods.finalResult(widget.symptomatology, name: "Orientações")
+                "Orientações": methods.finalResult(widget.symptomatology, name: "Orientações"),
               });
 
           writeOnPdf();
@@ -845,7 +848,7 @@ class _FinalResultState extends State<FinalResult> {
           Directory documentDirectory = await getExternalStorageDirectory();
 
           String documentPath = documentDirectory.path;
-          String fullPath = "$documentPath/${widget.name.toString().toUpperCase()}.pdf";
+          String fullPath = "$documentPath/${widget.name.toUpperCase()}.pdf";
 
           Navigator.pop(context);
           Navigator.push(context, MaterialPageRoute(builder: (context) => PDF(fullPath, name: widget.name)));

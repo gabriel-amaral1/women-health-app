@@ -19,7 +19,7 @@ class Methods {
 
   Widget nextQuestionFloatingActionButton(context, String heroTag, Map map, String symptom, var className, var answer) {
     return FloatingActionButton.extended(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: Theme.of(context).focusColor,
       heroTag: heroTag,
       onPressed: () {
         map[symptom] = answer;
@@ -79,10 +79,10 @@ class Methods {
 
   isSelected(context, var globalButton) {
     if (globalButton) {
-      return MaterialStateProperty.all(Theme.of(context).focusColor);
+      return MaterialStateProperty.all(Color(0xFF7A7A7A));
     }
 
-    return MaterialStateProperty.all(Theme.of(context).hoverColor);
+    return MaterialStateProperty.all(Color(0xFF040404));
   }
 
   setFalse({int counter = 0, bool boolean = false, bool boolean2 = false, bool boolean3 = false, bool boolean4 = false, bool boolean5 = false, bool boolean6 = false, bool boolean7 = false, bool boolean8 = false, bool boolean9 = false, bool boolean10 = false, String name = "", String name2 = "", String name3 = "", String name4 = "", String name5 = "", String name6 = "", String name7 = "", String name8 = "", String name9 = "", String name10 = "",}) {

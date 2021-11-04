@@ -1,10 +1,10 @@
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:gconsult/classes/Methods.dart';
-import 'package:gconsult/screens/Home.dart';
+import 'package:women_health_app/classes/Methods.dart';
+import 'package:women_health_app/screens/Home.dart';
 import 'package:cpf_cnpj_validator/cpf_validator.dart' as cpfValidator;
-import 'package:gconsult/screens/Question1.dart'; 
+import 'package:women_health_app/screens/Question1.dart'; 
  
 
 
@@ -31,7 +31,7 @@ class _UserDataState extends State<UserData> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: Text(
           "Sintomatologia",
           style: TextStyle(
@@ -253,7 +253,7 @@ class _UserDataState extends State<UserData> {
         )
       ),
       floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Theme.of(context).focusColor,
         onPressed: () {
           if (_formKey.currentState.validate()) {
             // If the form is valid, display a snackbar. In the real world,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gconsult/classes/Methods.dart';
-import 'package:gconsult/screens/Home.dart';
-import 'package:gconsult/screens/Question3.dart';
+import 'package:women_health_app/classes/Methods.dart';
+import 'package:women_health_app/screens/Home.dart';
+import 'package:women_health_app/screens/Question3.dart';
 
 
 class Question2 extends StatefulWidget {
@@ -28,6 +28,7 @@ class _Question2State extends State<Question2> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: methods.appBarFont("Sintomatologia"),
         actions: [
           IconButton(

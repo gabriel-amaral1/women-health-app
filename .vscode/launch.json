@@ -5,12 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "gconsult",
+            "name": "women_health_app",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "gconsult (profile mode)",
+            "name": "women_health_app (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"

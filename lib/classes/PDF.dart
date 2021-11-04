@@ -3,13 +3,14 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_full_pdf_viewer/flutter_full_pdf_viewer.dart';
 import 'package:esys_flutter_share/esys_flutter_share.dart';
-import 'package:gconsult/classes/Methods.dart';
-import 'package:gconsult/screens/Home.dart';
+import 'package:women_health_app/classes/Methods.dart';
+import 'package:women_health_app/screens/Home.dart';
 import 'package:path_provider/path_provider.dart';
 
 class PDF extends StatefulWidget {
   final String path, name;
-  PDF(this.path, {this.name, String pathPDF});
+  final hours, minutes, seconds, day, month, year;
+  PDF(this.path, {this.name, this.hours, this.minutes, this.seconds, this.day, this.month, this.year});
   
   @override
   _PDFState createState() => _PDFState();

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.gconsult">
+    package="com.app.womenhealth">
    <application
-        android:label="gconsult"
+        android:label="women_health_app"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

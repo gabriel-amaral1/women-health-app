@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "722973232290",
-    "project_id": "gconsult-782c2",
-    "storage_bucket": "gconsult-782c2.appspot.com"
+    "project_number": "965143048165",
+    "project_id": "women-health-app",
+    "storage_bucket": "women-health-app.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:722973232290:android:b10a2dc86fdcd65cca5bfb",
+        "mobilesdk_app_id": "1:965143048165:android:c80012186dc5ea2c68c90c",
         "android_client_info": {
-          "package_name": "com.example.gconsult"
+          "package_name": "com.app.womenhealth"
         }
       },
       "oauth_client": [
         {
-          "client_id": "722973232290-c052toaa42fkkricq4qjgfjbav9e2mqc.apps.googleusercontent.com",
+          "client_id": "965143048165-sudvisv44i0q7u2liqfil34mhn26gkn4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBLOcXMGY7_0fIr0S7tr85YjiP7q-y4bx8"
+          "current_key": "AIzaSyBWlrEirpdOk7zACDQU45JVB1TWwDGMcNA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "722973232290-c052toaa42fkkricq4qjgfjbav9e2mqc.apps.googleusercontent.com",
+              "client_id": "965143048165-sudvisv44i0q7u2liqfil34mhn26gkn4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
