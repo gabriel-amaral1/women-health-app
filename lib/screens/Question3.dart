@@ -12,19 +12,17 @@ class Question3 extends StatefulWidget {
 }
 
 class _Question3State extends State<Question3> {
-  bool _mucofluid = false;
-  bool _fluid = false;
-  bool _opaque = false;
-  bool _sticky = false;
-  bool _adherent = false;
+  bool _mucoideFluida = false;
+  bool _mucoideElastica = false;
+  bool _pastosa = false;
+  bool _grumosa = false;
 
   var answer;
 
-  String _mucofluidButtonName;
-  String _fluidButtonName;
-  String _opaqueButtonName;
-  String _stickyButtonName;
-  String _adherentButtonName;
+  String _mucoideFluidaButtonName;
+  String _mucoideElasticaButtonName;
+  String _pastosaButtonName;
+  String _grumosaButtonName;
 
 
   Methods methods = new Methods();
@@ -60,36 +58,36 @@ class _Question3State extends State<Question3> {
                     ElevatedButton(
                       onPressed: () {
                         setState(() {
-                          methods.setFalse(counter: methods.counter, boolean: _mucofluid = false, boolean2: _fluid = false, boolean3: _opaque = false, boolean4: _sticky = false, boolean5: _adherent = false, name: _mucofluidButtonName = "", name2: _fluidButtonName = "", name3: _opaqueButtonName = "", name4: _stickyButtonName = "", name5: _adherentButtonName = "");
+                          methods.setFalse(counter: methods.counter, boolean: _mucoideFluida = false, boolean2: _mucoideElastica = false, boolean3: _pastosa = false, boolean4: _grumosa = false, name: _mucoideFluidaButtonName = "", name2: _mucoideElasticaButtonName = "", name3: _pastosaButtonName = "", name4: _grumosaButtonName = "");
     
-                          methods.setValues(counter: methods.counter, pressedButton: _mucofluid = true, buttonName: _mucofluidButtonName = "Mucofluido");
+                          methods.setValues(counter: methods.counter, pressedButton: _mucoideFluida = true, buttonName: _mucoideFluidaButtonName = "Mucóide Fluida");
       
-                          answer = _mucofluidButtonName;
+                          answer = _mucoideFluidaButtonName;
                         });
                       }, 
-                      child: methods.buttonFont("Mucofluido"),
-                     style: ButtonStyle(
-                        fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
-                        elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(context, _mucofluid)
-                      ),
+                      child: methods.buttonFont("Mucóide Fluida"),
+                      style: ButtonStyle(
+                          fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
+                          elevation: MaterialStateProperty.all(5),
+                          backgroundColor: methods.isSelected(context, _mucoideFluida)
+                        ),
                     ),
                     ElevatedButton(
                       onPressed: () {
                         setState(() {
-                          methods.setFalse(counter: methods.counter, boolean: _mucofluid = false, boolean2: _fluid = false, boolean3: _opaque = false, boolean4: _sticky = false, boolean5: _adherent = false, name: _mucofluidButtonName = "", name2: _fluidButtonName = "", name3: _opaqueButtonName = "", name4: _stickyButtonName = "", name5: _adherentButtonName = "");
+                          methods.setFalse(counter: methods.counter, boolean: _mucoideFluida = false, boolean2: _mucoideElastica = false, boolean3: _pastosa = false, boolean4: _grumosa = false, name: _mucoideFluidaButtonName = "", name2: _mucoideElasticaButtonName = "", name3: _pastosaButtonName = "", name4: _grumosaButtonName = "");
     
-                          methods.setValues(counter: methods.counter, pressedButton: _fluid = true, buttonName: _fluidButtonName = "Fluido");
+                          methods.setValues(counter: methods.counter, pressedButton: _mucoideElastica = true, buttonName: _mucoideElasticaButtonName = "Mucóide Elástica");
       
-                          answer = _fluidButtonName;
+                          answer = _mucoideElasticaButtonName;
                         });
                       }, 
-                      child: methods.buttonFont("Fluido"),
-                     style: ButtonStyle(
-                        fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
-                        elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(context, _fluid)
-                      ),
+                      child: methods.buttonFont("Mucóide Elástica"),
+                      style: ButtonStyle(
+                          fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
+                          elevation: MaterialStateProperty.all(5),
+                          backgroundColor: methods.isSelected(context, _mucoideElastica)
+                        ),
                     ),
                   ],
                 ),
@@ -102,60 +100,35 @@ class _Question3State extends State<Question3> {
                     ElevatedButton(
                       onPressed: () {
                         setState(() {
-                          methods.setFalse(counter: methods.counter, boolean: _mucofluid = false, boolean2: _fluid = false, boolean3: _opaque = false, boolean4: _sticky = false, boolean5: _adherent = false, name: _mucofluidButtonName = "", name2: _fluidButtonName = "", name3: _opaqueButtonName = "", name4: _stickyButtonName = "", name5: _adherentButtonName = "");
+                          methods.setFalse(counter: methods.counter, boolean: _mucoideFluida = false, boolean2: _mucoideElastica = false, boolean3: _pastosa = false, boolean4: _grumosa = false, name: _mucoideFluidaButtonName = "", name2: _mucoideElasticaButtonName = "", name3: _pastosaButtonName = "", name4: _grumosaButtonName = "");
     
-                          methods.setValues(counter: methods.counter, pressedButton: _opaque = true, buttonName: _opaqueButtonName = "Opaco");
+                          methods.setValues(counter: methods.counter, pressedButton: _pastosa = true, buttonName: _pastosaButtonName = "Pastosa");
         
-                          answer = _opaqueButtonName;
+                          answer = _pastosaButtonName;
                         });
                       }, 
-                      child: methods.buttonFont("Opaco"),
-                     style: ButtonStyle(
-                        fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
-                        elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(context, _opaque)
-                      ),
+                      child: methods.buttonFont("Pastosa"),
+                      style: ButtonStyle(
+                          fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
+                          elevation: MaterialStateProperty.all(5),
+                          backgroundColor: methods.isSelected(context, _pastosa)
+                        ),
                     ),
                     ElevatedButton(
                       onPressed: () {
                         setState(() {
-                          methods.setFalse(counter: methods.counter, boolean: _mucofluid = false, boolean2: _fluid = false, boolean3: _opaque = false, boolean4: _sticky = false, boolean5: _adherent = false, name: _mucofluidButtonName = "", name2: _fluidButtonName = "", name3: _opaqueButtonName = "", name4: _stickyButtonName = "", name5: _adherentButtonName = "");
+                          methods.setFalse(counter: methods.counter, boolean: _mucoideFluida = false, boolean2: _mucoideElastica = false, boolean3: _pastosa = false, boolean4: _grumosa = false, name: _mucoideFluidaButtonName = "", name2: _mucoideElasticaButtonName = "", name3: _pastosaButtonName = "", name4: _grumosaButtonName = "");
     
-                          methods.setValues(counter: methods.counter, pressedButton: _sticky = true, buttonName: _stickyButtonName = "Pegajoso");
+                          methods.setValues(counter: methods.counter, pressedButton: _grumosa = true, buttonName: _grumosaButtonName = "Grumosa");
         
-                          answer = _stickyButtonName;
+                          answer = _grumosaButtonName;
                         });
                       }, 
-                      child: methods.buttonFont("Pegajoso"),
+                      child: methods.buttonFont("Grumosa"),
                       style: ButtonStyle(
                         fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
                         elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(context, _sticky)
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 40),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          methods.setFalse(counter: methods.counter, boolean: _mucofluid = false, boolean2: _fluid = false, boolean3: _opaque = false, boolean4: _sticky = false, boolean5: _adherent = false, name: _mucofluidButtonName = "", name2: _fluidButtonName = "", name3: _opaqueButtonName = "", name4: _stickyButtonName = "", name5: _adherentButtonName = "");
-    
-                          methods.setValues(counter: methods.counter, pressedButton: _adherent = true, buttonName: _adherentButtonName = "Aderente");
-        
-                          answer = _adherentButtonName;
-                        });
-                      }, 
-                      child: methods.buttonFont("Aderente"),
-                     style: ButtonStyle(
-                        fixedSize: MaterialStateProperty.all(Size(methods.width, methods.height)),
-                        elevation: MaterialStateProperty.all(5),
-                        backgroundColor: methods.isSelected(context, _adherent)
+                        backgroundColor: methods.isSelected(context, _grumosa)
                       ),
                     ),
                   ],

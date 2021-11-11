@@ -120,7 +120,7 @@ class Methods {
 
   finalResult(Map map, {var name}) {
     Map result = new Map<String, dynamic>();
-    if(map["Cor"] == "Transparente" && map["Odor"] == "Inodor" && map["Consistência"] == "Opaco") {
+    if(map["Cor"] == "Transparente" && map["Odor"] == "Inodor" && map["Consistência"] == "Grumosa") {
       result["Sugestões"] = "Vá ao médico.";
       result["Orientações"] = "Beba mais água.";
       return result[name];

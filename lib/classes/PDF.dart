@@ -8,9 +8,8 @@ import 'package:women_health_app/screens/Home.dart';
 import 'package:path_provider/path_provider.dart';
 
 class PDF extends StatefulWidget {
-  final String path, name;
-  final hours, minutes, seconds, day, month, year;
-  PDF(this.path, {this.name, this.hours, this.minutes, this.seconds, this.day, this.month, this.year});
+  final String path, name, day, month, year, hour, minute, second;
+  PDF(this.path, {this.name, this.day, this.month, this.year, this.hour, this.minute, this.second});
   
   @override
   _PDFState createState() => _PDFState();
@@ -31,12 +30,12 @@ class _PDFState extends State<PDF> {
               onPressed: () async {
                 Directory documentDirectory = await getExternalStorageDirectory();
                 String documentPath = documentDirectory.path;
-                File file = File("$documentPath/${widget.name.toUpperCase()}.pdf");
+                File file = File("$documentPath/${widget.name.toUpperCase()} ${widget.day}-${widget.month}-${widget.year} ${widget.hour}h${widget.minute}min${widget.second}s.pdf");
 
                 var sharePdf = await file.readAsBytes();
                 await Share.file(
                   'PDF Document',
-                  '${widget.name.toUpperCase()}.pdf',
+                  '${widget.name.toUpperCase()} ${widget.day}-${widget.month}-${widget.year} ${widget.hour}h${widget.minute}min${widget.second}s.pdf',
                   sharePdf.buffer.asUint8List(),
                   '*/*',
                 );

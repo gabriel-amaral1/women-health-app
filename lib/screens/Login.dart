@@ -9,6 +9,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  // Change the settings in the firebase to only make changes the people that are authorized.
   @override
   Widget build(BuildContext context) {
     return Scaffold(

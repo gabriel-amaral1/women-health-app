@@ -63,7 +63,14 @@ class _HomeState extends State<Home> {
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return PDF(files[index].path.toString(), name: files[index].path.split('/').last.toString().substring(0, files[index].path.split('/').last.toString().length-4));
+                return PDF(files[index].path.toString(), 
+                          name: files[index].path.split('/').last.toString().substring(0, files[index].path.split('/').last.toString().length-27), 
+                          day: files[index].path.split('/').last.toString().substring(files[index].path.split('/').last.toString().length-26, files[index].path.split('/').last.toString().length-24), 
+                          month: files[index].path.split('/').last.toString().substring(files[index].path.split('/').last.toString().length-23, files[index].path.split('/').last.toString().length-21), 
+                          year: files[index].path.split('/').last.toString().substring(files[index].path.split('/').last.toString().length-20, files[index].path.split('/').last.toString().length-16), 
+                          hour: files[index].path.split('/').last.toString().substring(files[index].path.split('/').last.toString().length-15, files[index].path.split('/').last.toString().length-13), 
+                          minute: files[index].path.split('/').last.toString().substring(files[index].path.split('/').last.toString().length-12, files[index].path.split('/').last.toString().length-10), 
+                          second: files[index].path.split('/').last.toString().substring(files[index].path.split('/').last.toString().length-7, files[index].path.split('/').last.toString().length-5));
               }));
             },
           );

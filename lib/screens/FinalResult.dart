@@ -23,9 +23,15 @@ class _FinalResultState extends State<FinalResult> {
   var day = DateTime.now().day;
   var month = DateTime.now().month;
   var year = DateTime.now().year;
-  var hours = DateTime.now().hour;
-  var minutes = DateTime.now().minute;
-  var seconds = DateTime.now().second;
+  var hour = DateTime.now().hour;
+  var minute = DateTime.now().minute;
+  var second = DateTime.now().second;
+
+  String homeDay;
+  String homeMonth;
+  String homeHour;
+  String homeMinute;
+  String homeSecond;
 
   final pdf = pdfWidgets.Document();
 
@@ -453,11 +459,54 @@ class _FinalResultState extends State<FinalResult> {
     );
   }
 
+  homeVars() {
+    homeDay = day.toString();
+    homeMonth = month.toString();
+    homeHour = hour.toString();
+    homeMinute = minute.toString();
+    homeSecond = second.toString();
+
+    //Date
+
+     if(day < 10) {
+        homeDay = "0" + day.toString();
+    }
+
+     if(month < 10) {
+        homeMonth = "0" + month.toString();
+    }
+
+    // End of Date
+
+    // Time
+
+    if(hour < 10) {
+      homeHour = "0" + hour.toString();
+    }
+
+    if(minute < 10) {
+      homeMinute = "0" + minute.toString();
+    }
+
+    if(second < 10) {
+      homeSecond = "0" + second.toString();
+    }
+
+    // End of Time
+
+    print("Day: " + homeDay);
+    print("Month: " + homeMonth);
+    print("Hour: " + homeHour);
+    print("Minute: " + homeMinute);
+    print("Second: " + homeSecond);
+  }
+
   Future savePdf() async {
     Directory documentDirectory = await getExternalStorageDirectory();
 
+    homeVars();
     String documentPath = documentDirectory.path;
-    File file = File("$documentPath/${widget.name.toUpperCase()}.pdf");
+    File file = File("$documentPath/${widget.name.toUpperCase()} $homeDay-$homeMonth-$year ${homeHour}h${homeMinute}min${homeSecond}s.pdf");
 
     file.writeAsBytesSync(await pdf.save());
   }
@@ -844,14 +893,15 @@ class _FinalResultState extends State<FinalResult> {
 
           writeOnPdf();
           savePdf();
+          homeVars();
           
           Directory documentDirectory = await getExternalStorageDirectory();
 
           String documentPath = documentDirectory.path;
-          String fullPath = "$documentPath/${widget.name.toUpperCase()}.pdf";
+          String fullPath = "$documentPath/${widget.name.toUpperCase()} $homeDay-$homeMonth-$year ${homeHour}h${homeMinute}min${homeSecond}s.pdf";
 
           Navigator.pop(context);
-          Navigator.push(context, MaterialPageRoute(builder: (context) => PDF(fullPath, name: widget.name)));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => PDF(fullPath, name: widget.name, day: homeDay, month: homeMonth, year: year.toString(), hour: homeHour, minute: homeMinute, second: homeSecond,)));
         },
         label: methods.floatingActionFont("Finalizar")
       ), 
