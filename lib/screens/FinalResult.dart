@@ -493,12 +493,6 @@ class _FinalResultState extends State<FinalResult> {
     }
 
     // End of Time
-
-    print("Day: " + homeDay);
-    print("Month: " + homeMonth);
-    print("Hour: " + homeHour);
-    print("Minute: " + homeMinute);
-    print("Second: " + homeSecond);
   }
 
   Future savePdf() async {
@@ -901,7 +895,7 @@ class _FinalResultState extends State<FinalResult> {
           String fullPath = "$documentPath/${widget.name.toUpperCase()} $homeDay-$homeMonth-$year ${homeHour}h${homeMinute}min${homeSecond}s.pdf";
 
           Navigator.pop(context);
-          Navigator.push(context, MaterialPageRoute(builder: (context) => PDF(fullPath, name: widget.name, day: homeDay, month: homeMonth, year: year.toString(), hour: homeHour, minute: homeMinute, second: homeSecond,)));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => PDF(fullPath, name: widget.name, day: homeDay, month: homeMonth, year: year.toString(), hour: homeHour, minute: homeMinute, second: homeSecond)));
         },
         label: methods.floatingActionFont("Finalizar")
       ), 
